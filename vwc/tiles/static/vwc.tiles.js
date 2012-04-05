@@ -1,7 +1,7 @@
 // jQuery function
 /*global common_content_filter:false */
 jQuery(function($) {
-  $('div[data-tile]').each(function() {
+  $('div[data-tile], h1[data-tile], h2[data-tile]').each(function() {
       $(this).addClass('tile-editable');
       var href = $(this).attr('data-tile');
       var edithref = href.replace(/@@/, '@@edit-tile/');
@@ -29,5 +29,11 @@ jQuery(function($) {
           });
       }
   }
+  $(document).bind('loadInsideOverlay', function() {
+        $('textarea.mce_editable').each(function() {
+            var config = new TinyMCEConfig($(this).attr('id'));
+            config.init();
+        });
+    });
   
 });
