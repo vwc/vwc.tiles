@@ -5,7 +5,7 @@ jQuery(function($) {
       $(this).addClass('tile-editable');
       var href = $(this).attr('data-tile');
       var edithref = href.replace(/@@/, '@@edit-tile/');
-      $('<a class="tile-edit-link" href="' + edithref + '"><img src="pencil_icon.png" width="16" height="16"/></a>')
+      $('<a class="tile-edit-link" href="' + edithref + '"><img src="/++resource++vwc.tiles/icon-tile-edit.png" width="16" height="16" alt="Edit Tile"/></a>')
         .appendTo($(this))
         .prepOverlay({
             subtype: 'iframe',
