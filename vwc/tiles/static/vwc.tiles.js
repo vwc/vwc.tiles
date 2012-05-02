@@ -9,10 +9,16 @@ jQuery(function($) {
         .appendTo($(this))
         .prepOverlay({
             subtype: 'iframe',
-            filter: common_content_filter,
             config: {
-                onClose: function() { location.reload(); }
-            }
+              closeOnClick: false,
+              mask: {
+                color: '#000000',
+                opacity: 0.8
+              },
+              onClose: function() {
+                location.reload();
+              }
+            },
         });
   });
   
@@ -31,8 +37,11 @@ jQuery(function($) {
   }
   $(document).bind('loadInsideOverlay', function() {
         $('textarea.mce_editable').each(function() {
-            var config = new TinyMCEConfig($(this).attr('id'));
-            config.init();
+          var id = $(this).attr('id'),
+              config = new TinyMCEConfig(id);
+          //var config = new TinyMCEConfig($(this).attr('id'));
+          delete InitializedTinyMCEInstances[id];
+          config.init();
         });
     });
   
