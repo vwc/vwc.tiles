@@ -43,6 +43,10 @@
       for="*"
       />
 
+  <browser:resourceDirectory
+    name="vwc.tiles"
+    directory="static" />
+
   <browser:resource
       name="vwc.tiles.css"
       file="static/vwc.tiles.css"
@@ -52,6 +56,12 @@
   <browser:resource
       name="vwc.tiles.js"
       file="static/vwc.tiles.js"
+      layer=".interfaces.IVwcTilesLayer"
+      />
+
+  <browser:resource
+      name="icon-tile-edit.png"
+      file="static/icon-tile-edit.png"
       layer=".interfaces.IVwcTilesLayer"
       />
 
